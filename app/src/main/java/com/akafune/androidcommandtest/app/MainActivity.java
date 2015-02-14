@@ -8,10 +8,34 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+    private TextView noticeView;
+    private EditText idText;
+    private EditText passText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        noticeView = (TextView) findViewById(R.id.noticeView);
+        idText = (EditText) findViewById(R.id.userIdText);
+        passText = (EditText) findViewById(R.id.passwordText);
+
+        findViewById(R.id.button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String idStr = idText.getText().toString();
+                        String passStr = passText.getText().toString();
+
+                        if(idStr.equals(""))
+                            noticeView.setText("IDが入力されていません");
+                        else if(passStr.equals(""))
+                            noticeView.setText("パスワードが入力されていません");
+                        else
+                            noticeView.setText("OK");
+                    }
+                });
     }
 
 
