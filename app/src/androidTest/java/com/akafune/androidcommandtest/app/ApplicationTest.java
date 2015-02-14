@@ -23,7 +23,7 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
 
     private MainActivity activity;
 
-    public MainActivityTest() {
+    public ApplicationTest() {
         super(MainActivity.class);
     }
 
