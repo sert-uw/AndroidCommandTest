@@ -24,7 +24,8 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
     private MainActivity activity;
 
     public ApplicationTest() {
-        super(MainActivity.class);
+        super("com.akafune.androidcommandtest.app.MainActivity",
+	MainActivity.class);
     }
 
     @Before
@@ -40,20 +41,20 @@ public class ApplicationTest extends ActivityInstrumentationTestCase2<MainActivi
     }
 
     @Test
-    public void idEmpty(){
+    public void testIdEmpty(){
         onView(withId(R.id.button)).perform(click());
         onView(withId(R.id.noticeView)).check(matches(withText("IDが入力されていません")));
     }
 
     @Test
-    public void passEmpty(){
+    public void testPassEmpty(){
         onView(withId(R.id.userIdText)).perform(typeText("1234"));
         onView(withId(R.id.button)).perform(click());
         onView(withId(R.id.noticeView)).check(matches(withText("パスワードが入力されていません")));
     }
 
     @Test
-    public void allInput(){
+    public void testAllInput(){
         onView(withId(R.id.userIdText)).perform(typeText("1234"));
         onView(withId(R.id.passwordText)).perform(typeText("password"));
         onView(withId(R.id.button)).perform(click());
